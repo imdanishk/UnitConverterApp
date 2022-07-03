@@ -1,5 +1,6 @@
 package com.example.unitconverterapp
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -16,7 +17,9 @@ fun TopScreen(list: List<Conversion>) {
     }
 
     selectedConversion.value?.let {
-        InputBlock(conversion = it, inputText = inputText)
+        InputBlock(conversion = it, inputText = inputText) { input ->
+            Log.i("mytag", "User typed: $input")
+        }
     }
 }
 
